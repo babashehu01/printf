@@ -1,3 +1,4 @@
-*main
+main*
 *.out
 *main.c
+*.o
