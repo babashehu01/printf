@@ -25,7 +25,9 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == 's')
 				{
-					str_len = print_str(va_arg(args, char *));
+					s = va_arg(args, char *);
+					str_len = _strlen(s);
+					write(1, s, str_len);
 					num_char += str_len;
 					i++;
 				}
