@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 					i++;
 				}
 			}
-			else if (format[i] == 'n')
+			else if (format[i] == '\n')
 			{
 				write(1, &n, 1);
 				num_char++;
