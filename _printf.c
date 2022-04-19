@@ -47,6 +47,11 @@ int _printf(const char *format, ...)
 			}
 		}
 		va_end(args);
+
 		return (num_char);
+	}
+	else
+	{
+		return (0);
 	}
 }
