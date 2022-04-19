@@ -9,13 +9,16 @@
  */
 int _printf(const char *format, ...)
 {
+	va_list args;
+	va_start(args, format);
 	if (format)
 	{
-		va_list args;
-
-		va_start(args, format);
-
-		int i, length, str_len, num_char = 0;
+		int i;
+		int length;
+		int str_len;
+		int num_char = 0;
+		char *s;
+		char w;
 
 		length = _strlen(format);
 
@@ -25,8 +28,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == 's')
 				{
-					char *s = va_arg(args, char *);
-
+					s = va_arg(args, char *);
 					str_len = _strlen(s);
 					write(1, s, str_len);
 					num_char += str_len;
@@ -34,8 +36,7 @@ int _printf(const char *format, ...)
 				}
 				else if (format[i + 1] == 'c')
 				{
-					char w = va_arg(args, int);
-
+					w = va_arg(args, int);
 					write(1, &w, 1);
 					num_char++;
 					i++;
