@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	{
 		int i, length, str_len;
 		int num_char = 0;
-		char *s, w;
+		char *s, w, n = '\n';
 
 		length = _strlen(format);
 		for (i = 0; i < length; i++)
@@ -38,6 +38,11 @@ int _printf(const char *format, ...)
 					num_char++;
 					i++;
 				}
+			}
+			else if (format[i] == 'n')
+			{
+				write(1, &n, 1);
+				num_char++;
 			}
 			else
 			{
