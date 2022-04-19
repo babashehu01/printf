@@ -6,7 +6,6 @@
  *
  * Return: Number of characters printed
  */
-int print_str(const char *format);
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -54,5 +53,5 @@ int _printf(const char *format, ...)
 		return (num_char);
 	}
 	else
-	return (-1);
+		return (-1);
 }
