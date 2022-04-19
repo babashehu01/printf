@@ -10,12 +10,11 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
+
 	va_start(args, format);
 	if (format)
 	{
-		int i;
-		int length;
-		int str_len;
+		int i, length, str_len;
 		int num_char = 0;
 		char *s;
 		char w;
@@ -43,16 +42,11 @@ int _printf(const char *format, ...)
 				}
 			}
 			else
-			{
 				write(1, &format[i], 1);
-			}
 		}
-		va_end(args);
-
-		return (num_char);
+	va_end(args);
+	return (num_char);
 	}
 	else
-	{
 		return (0);
-	}
 }
