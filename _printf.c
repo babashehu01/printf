@@ -6,6 +6,7 @@
  *
  * Return: Number of characters printed
  */
+int print_str(const char *format);
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -15,8 +16,7 @@ int _printf(const char *format, ...)
 	{
 		int i, length, str_len;
 		int num_char = 0;
-		char *s;
-		char w, n = '\n';
+		char *s, w, n = '\n';
 
 		length = _strlen(format);
 		for (i = 0; i < length; i++)
@@ -25,9 +25,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == 's')
 				{
-					s = va_arg(args, char *);
-					str_len = _strlen(s);
-					write(1, s, str_len);
+					str_len = print_str(va_arg(args, char *));
 					num_char += str_len;
 					i++;
 				}
@@ -50,5 +48,5 @@ int _printf(const char *format, ...)
 		return (num_char);
 	}
 	else
-		return (-1);
+	return (-1);
 }

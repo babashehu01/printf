@@ -7,5 +7,6 @@
 
 int _printf(const char *format, ...);
 int _strlen(const char *s);
+int print_str(const char *format);
 
 #endif
