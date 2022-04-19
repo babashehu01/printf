@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	{
 		int i, length, str_len;
 		int num_char = 0;
-		char *s, w, n = '\n';
+		char *s, w;
 
 		length = _strlen(format);
 		for (i = 0; i < length; i++)
