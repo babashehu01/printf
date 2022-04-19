@@ -16,10 +16,9 @@ int _printf(const char *format, ...)
 		int i, length, str_len;
 		int num_char = 0;
 		char *s;
-		char w;
+		char w, n = '\n';
 
 		length = _strlen(format);
-
 		for (i = 0; i < length; i++)
 		{
 			if (format[i] == '%')
@@ -43,8 +42,9 @@ int _printf(const char *format, ...)
 			else
 				write(1, &format[i], 1);
 		}
-	va_end(args);
-	return (num_char);
+		write(1, &n, 1);
+		va_end(args);
+		return (num_char);
 	}
 	else
 		return (0);
