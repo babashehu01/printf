@@ -34,9 +34,14 @@ int _printf(const char *format, ...)
 			write(1, &w, 1);
 			num_char++, i++;
 		}
-		else if(format[i + 1] == 'd' || format[i + 1] == 'i')
+		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 		{
 			write_int(va_arg(args, int));
+			i++;
+		}
+		else if (format[i + 1] == 'b')
+		{
+			bin(va_arg(args, int));
 			i++;
 		}
 	}
