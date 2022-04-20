@@ -8,7 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, length, str_len;
+	int i, str_len;
 	int num_char = 0;
 	char *s, w, n = '\n';
 	va_list args;
@@ -17,8 +17,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	va_start(args, format);
 
-	length = _strlen(format);
-	for (i = 0; i < length; i++)
+	for (i = 0; format[i]; i++)
 	{
 	if (format[i] == '%')
 	{
