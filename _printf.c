@@ -8,9 +8,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, str_len;
+	int i;
 	int num_char = 0;
-	char *s, w, n = '\n';
 	va_list args;
 
 	if (!format)
@@ -19,19 +18,16 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i]; i++)
 	{
-	if (format[i] == '%')
+	if (format[i] == '%' && check_mode(format[i + 1]))
 	{
 		if (format[i + 1] == 's')
 		{
-			s = va_arg(args, char *);
-			str_len = _strlen(s);
-			write(1, s, str_len);
-			num_char += str_len, i++;
+			write_str(va_arg(args, char *));
+			num_char += i++;
 		}
 		else if (format[i + 1] == 'c')
 		{
-			w = va_arg(args, int);
-			write(1, &w, 1);
+			write_char(va_arg(args, int));
 			num_char++, i++;
 		}
 		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
@@ -44,11 +40,6 @@ int _printf(const char *format, ...)
 			bin(va_arg(args, int));
 			i++;
 		}
-	}
-	else if (format[i] == '\n')
-	{
-		write(1, &n, 1);
-		num_char++;
 	}
 	else
 	{
