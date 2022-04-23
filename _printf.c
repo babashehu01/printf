@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 		{
 			num_char += write_int(va_arg(args, int), &p);
-			i++;
+			i++, p = 0;
 		}
 		else if (format[i + 1] == 'b')
 		{
