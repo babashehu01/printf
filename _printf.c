@@ -48,5 +48,5 @@ int _printf(const char *format, ...)
 	}
 	}
 	va_end(args);
-	return (num_char - 1);
+	return (num_char);
 }
