@@ -7,8 +7,8 @@
 
 int _printf(const char *format, ...);
 int _strlen(const char *s);
-void write_int(int n);
-void bin(unsigned int n);
+int write_int(int n, int *ptr);
+int bin(unsigned int n, int *ptr);
 int write_char(char c);
 int write_str(char *s);
 int check_mode(char c);

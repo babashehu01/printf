@@ -4,14 +4,16 @@
  * @n: input
  * Return: No return value
  */
-void bin(unsigned int n)
+int bin(unsigned int n, int *ptr)
 {
 	char c;
 
+	(*ptr)++;
 	if (n / 2 > 0)
 	{
-		bin(n / 2);
+		bin(n / 2, ptr);
 	}
 	c = (n % 2) + '0';
 	write(1, &c, 1);
+	return (*ptr);
 }

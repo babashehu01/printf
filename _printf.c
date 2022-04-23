@@ -8,7 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
+	int i, p = 0;
 	int num_char = 0;
 	va_list args;
 
@@ -22,22 +22,22 @@ int _printf(const char *format, ...)
 	{
 		if (format[i + 1] == 's')
 		{
-			write_str(va_arg(args, char *));
-			num_char += i++;
+			num_char += write_str(va_arg(args, char *));
+			i++;
 		}
 		else if (format[i + 1] == 'c')
 		{
-			write_char(va_arg(args, int));
-			num_char++, i++;
+			num_char += write_char(va_arg(args, int));
+			i++;
 		}
 		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 		{
-			write_int(va_arg(args, int));
+			num_char += write_int(va_arg(args, int), &p);
 			i++;
 		}
 		else if (format[i + 1] == 'b')
 		{
-			bin(va_arg(args, int));
+			num_char += bin(va_arg(args, int), &p);
 			i++;
 		}
 	}
@@ -48,5 +48,5 @@ int _printf(const char *format, ...)
 	}
 	}
 	va_end(args);
-	return (num_char);
+	return (num_char - 1);
 }
