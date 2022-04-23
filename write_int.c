@@ -12,6 +12,7 @@ int write_int(int n, int *ptr)
 	if (n < 0)
 	{
 		c = '-';
+		(*ptr)++;
 		write(1, &c, 1);
 		n = -n;
 	}
