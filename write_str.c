@@ -8,7 +8,7 @@ int write_str(char *s)
 	{
 		s = "(null)";
 		write(1, s, 6);
-		return (0);
+		return (6);
 	}
 	length = _strlen(s);
 
