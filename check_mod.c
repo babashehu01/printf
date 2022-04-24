@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * check_mod - checks for a ('%') symbol
+ * check_mode - checks for a ('%') symbol
  * @c: inputed character
  *
  * Return: state of the func
