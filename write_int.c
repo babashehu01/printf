@@ -9,7 +9,14 @@
 int write_int(int n, int *ptr)
 {
 	char c;
+	char *s;
 
+	if (n == -2147483648)
+	{
+		s = "-2147483648";
+		write(1, s, 12);
+		return (11);
+	}
 	(*ptr)++;
 	if (n < 0)
 	{
