@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 	int num_char = 0, len;
 	va_list args;
 
+	if (format == NULL)
+		return (-1);
 	len = _strlen(format);
 	if (!format)
 		return (-1);
