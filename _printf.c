@@ -8,13 +8,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, p = 0;
-	int num_char = 0;
+	int i = 0, p = 0;
+	int num_char = 0, len;
 	va_list args;
 
+	len = _strlen(format);
 	if (!format)
 		return (-1);
-	if (format[0] == '%' && _strlen(format) == 1);
+	if (format[0] == '%' && len == 1);
 		return (-1);
 	va_start(args, format);
 	for (i = 0; format[i]; i++)
