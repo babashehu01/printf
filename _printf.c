@@ -40,6 +40,11 @@ int _printf(const char *format, ...)
 			num_char += bin(va_arg(args, int), &p);
 			i++;
 		}
+		else if (format[i + 1] == '%' && check_mode(format[i + 2]))
+		{
+			write(1, &format[i + 1], 1);
+			num_char++;
+		}
 	}
 	else
 	{
