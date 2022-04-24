@@ -3,7 +3,7 @@
 int check_mode(char c)
 {
 	int i;
-	char arr[] = "csdib\n";
+	char arr[] = "csdib\n%";
 
 	for (i = 0; arr[i]; i++)
 	{
