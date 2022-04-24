@@ -1,13 +1,15 @@
 #include "main.h"
-
 /**
  * write_int - Write integer to stdout
- * @n: Integer passed
+ * @n: inputed integer
+ * @ptr: pointer to varaible count
+ *
+ * Return: Length of integer
  */
 int write_int(int n, int *ptr)
 {
 	char c;
-	
+
 	(*ptr)++;
 	if (n < 0)
 	{

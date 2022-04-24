@@ -1,5 +1,10 @@
 #include "main.h"
-
+/**
+ * check_mod - checks for a ('%') symbol
+ * @c: inputed character
+ *
+ * Return: state of the func
+ */
 int check_mode(char c)
 {
 	int i;

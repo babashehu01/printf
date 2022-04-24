@@ -8,15 +8,13 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, p = 0;
-	int num_char = 0, len;
+	int len, i, num_char = 0;
 	va_list args;
 
 	if (format == NULL)
 		return (-1);
 	len = _strlen(format);
-	if (!format)
-		return (-1);
+
 	if (format[0] == '%' && len == 1)
 		return (-1);
 	va_start(args, format);
@@ -24,33 +22,7 @@ int _printf(const char *format, ...)
 	{
 	if (format[i] == '%' && check_mode(format[i + 1]))
 	{
-		if (format[i + 1] == 's')
-		{
-			num_char += write_str(va_arg(args, char *));
-			i++;
-		}
-		else if (format[i + 1] == 'c')
-		{
-			num_char += write_char(va_arg(args, int));
-			i++;
-		}
-		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
-		{
-			num_char += write_int(va_arg(args, int), &p);
-			i++, p = 0;
-		}
-		else if (format[i + 1] == 'b')
-		{
-			num_char += bin(va_arg(args, int), &p);
-			i++;
-			p = 0;
-		}
-		else if (format[i + 1] == '%' && check_mode(format[i + 2]))
-		{
-			write(1, &format[i + 1], 1);
-			num_char++;
-			i++;
-		}
+		check_func(args, format[i + 1], &num_char, &i);
 	}
 	else
 	{

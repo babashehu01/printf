@@ -2,6 +2,7 @@
 /**
  * bin - converts to binary
  * @n: input
+ * @ptr: pointer to the count variable
  * Return: No return value
  */
 int bin(unsigned int n, int *ptr)
