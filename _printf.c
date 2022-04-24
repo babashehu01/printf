@@ -43,6 +43,7 @@ int _printf(const char *format, ...)
 		{
 			num_char += bin(va_arg(args, int), &p);
 			i++;
+			p = 0;
 		}
 		else if (format[i + 1] == '%' && check_mode(format[i + 2]))
 		{
