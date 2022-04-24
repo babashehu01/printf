@@ -14,7 +14,7 @@ int write_int(int n, int *ptr)
 	if (n == -2147483648)
 	{
 		s = "-2147483648";
-		write(1, s, 12);
+		write(1, s, 11);
 		return (11);
 	}
 	(*ptr)++;
