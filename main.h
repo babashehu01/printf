@@ -21,5 +21,6 @@ int write_uint(unsigned int n, int *ptr);
 int octal_write(unsigned int num, int *ptr);
 int hexa_write(unsigned int num, int *ptr);
 int hexa_x_write(unsigned int num, int *ptr);
+void check_func2(va_list, char c, int *num_char, int *i);
 
 #endif

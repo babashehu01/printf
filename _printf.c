@@ -23,6 +23,7 @@ int _printf(const char *format, ...)
 	if (format[i] == '%' && check_mode(format[i + 1]))
 	{
 		check_func(args, format[i + 1], &num_char, &i);
+		check_func2(args, format[i + 1], &num_char, &i);
 	}
 	else
 	{
