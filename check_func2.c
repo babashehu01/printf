@@ -31,7 +31,7 @@ void check_func2(va_list args, char c, int *num_char, int *i)
 	}
 	else if (c == 'X')
 	{
-		(*num_char)++ += hexa_x_write(va_arg(args, unsigned int), &p);
+		(*num_char) += hexa_x_write(va_arg(args, unsigned int), &p);
 		(*i)++;
 		p = 0;
 	}
