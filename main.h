@@ -22,5 +22,7 @@ int octal_write(unsigned int num, int *ptr);
 int hexa_write(unsigned int num, int *ptr);
 int hexa_x_write(unsigned int num, int *ptr);
 void check_func2(va_list, char c, int *num_char, int *i);
+int str_ascii(char *str);
+char *choose_ascii(int i);
 
 #endif
