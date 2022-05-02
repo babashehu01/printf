@@ -35,4 +35,9 @@ void check_func2(va_list args, char c, int *num_char, int *i)
 		(*i)++;
 		p = 0;
 	}
+	else if (c == 'S')
+	{
+		(*num_char) += str_ascii(va_arg(args, char *));
+		(*i)++;
+	}
 }

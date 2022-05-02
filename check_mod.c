@@ -8,7 +8,7 @@
 int check_mode(char c)
 {
 	int i;
-	char arr[] = "Xxoucsdib\n%";
+	char arr[] = "SXxoucsdib\n%";
 
 	for (i = 0; arr[i]; i++)
 	{
