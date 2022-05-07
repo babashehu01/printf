@@ -25,6 +25,11 @@ int _printf(const char *format, ...)
 		check_func(args, format[i + 1], &num_char, &i);
 		check_func2(args, format[i + 1], &num_char, &i);
 	}
+	else if (format[i] == '%' && check_flag(format[i + 1]))
+	{
+		check_func_flag(args, format[i + 1], format[i + 2],
+				&num_char, &i);
+	}
 	else
 	{
 		write(1, &format[i], 1);

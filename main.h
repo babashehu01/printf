@@ -26,5 +26,7 @@ int str_ascii(char *str);
 char *choose_ascii(int i);
 int hexa_ulong_write(unsigned long int num, int *ptr);
 int wrt_address(void *ptr);
+int check_flag(char c);
+void check_func_flag(va_list args, char c, char f_spec, int *num_char, int *i);
 
 #endif
