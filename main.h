@@ -24,5 +24,7 @@ int hexa_x_write(unsigned int num, int *ptr);
 void check_func2(va_list, char c, int *num_char, int *i);
 int str_ascii(char *str);
 char *choose_ascii(int i);
+int hexa_ulong_write(unsigned long int num, int *ptr);
+int wrt_address(void *ptr);
 
 #endif
