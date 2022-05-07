@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	int len, i, num_char = 0;
-	char c;
+	char c = '%';
 	va_list args;
 
 	if (format == NULL)

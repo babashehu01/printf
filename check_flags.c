@@ -12,6 +12,8 @@ int check_flag(char c)
 	char *s = "+# ";
 	int i;
 
+	if (c == '%')
+		return (1);
 	for (i = 0; s[i]; i++)
 	{
 		if (c == s[i])
