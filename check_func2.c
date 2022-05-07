@@ -40,4 +40,9 @@ void check_func2(va_list args, char c, int *num_char, int *i)
 		(*num_char) += str_ascii(va_arg(args, char *));
 		(*i)++;
 	}
+	else if (c == 'p')
+	{
+		(*num_char) += wrt_address(va_arg(args, void *));
+		(*i)++;
+	}
 }
