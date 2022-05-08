@@ -37,7 +37,7 @@ void wrt_flag1(unsigned int num, int *num_char,
 	{
 		write(1, &c, 1);
 		(*num_char)++;
-		(*i) += 2;
+		(*i) += 1;
 		return;
 	}
 	write(1, &c, 1);
@@ -64,7 +64,7 @@ void wrt_flag2(unsigned int num, char *str, int *num_char,
 	{
 		write(1, &c, 1);
 		(*num_char)++;
-		(*i) += 2;
+		(*i) += 1;
 		return;
 	}
 	write(1, str, 2);
