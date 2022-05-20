@@ -1,0 +1,11 @@
+#include "main.h"
+
+int main(void)
+{
+	unsigned short int i = -1;
+
+	if ((short int)i < 0)
+		printf("here\n");
+	printf("%hu", i);
+	return (0);
+}

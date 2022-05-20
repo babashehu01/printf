@@ -15,7 +15,6 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	len = _strlen(format);
-
 	if (format[0] == '%' && len == 1)
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && len == 2)
@@ -25,6 +24,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%' && check_mode(format[i + 1]))
 		{
+			length_modifiers(args, format[i + 1], &num_char, &i, format[i + 2]);
 			check_func(args, format[i + 1], &num_char, &i);
 			check_func2(args, format[i + 1], &num_char, &i);
 		}
@@ -33,14 +33,12 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '+' || format[i + 2] == '+')
 				c = '+';
-			check_func_flag(args, c, format[i + 3],
-					&num_char, &i);
+			check_func_flag(args, c, format[i + 3], &num_char, &i);
 			i++;
 		}
 		else if (format[i] == '%' && check_flag(format[i + 1]))
 		{
-			check_func_flag(args, format[i + 1], format[i + 2],
-					&num_char, &i);
+			check_func_flag(args, format[i + 1], format[i + 2], &num_char, &i);
 		}
 		else
 		{

@@ -2,7 +2,7 @@
 
 /**
  * check_flag - check for flags
- * @flag: Flag passed
+ * @c: Flag passed
  *
  * Return: 1 - if present
  *         0 - not present
