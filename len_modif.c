@@ -111,13 +111,29 @@ void h_modifier(va_list args, char c, int *num_char, int *i, char _c)
  */
 void length_modifiers(va_list args, char c, int *num_char, int *i, char _c)
 {
+	char pc = '%';
+
 	if (c == 'l')
 	{
+		if (_c == '\n')
+		{
+			write(1, &pc, 1);
+			(*num_char)++;
+			(*i)++;
+			return;
+		}
 		l_modifier(args, c, num_char, i, _c);
 		return;
 	}
 	if (c == 'h')
 	{
+		if (_c == '\n')
+		{
+			write(1, &pc, 1);
+			(*num_char)++;
+			(*i)++;
+			return;
+		}
 		h_modifier(args, c, num_char, i, _c);
 		return;
 	}
