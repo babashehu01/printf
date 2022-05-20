@@ -14,7 +14,7 @@ void l_modifier(va_list args, char c, int *num_char, int *i, char _c)
 
 	if (c == 'l')
 	{
-		if (_c == 'd' || c == 'i')
+		if (_c == 'd' || _c == 'i')
 		{
 			(*num_char) += write_int_long(va_arg(args, long int), &p);
 			(*i) += 2;
@@ -67,7 +67,7 @@ void h_modifier(va_list args, char c, int *num_char, int *i, char _c)
 
 	if (c == 'h')
 	{
-		if (_c == 'd' || c == 'i')
+		if (_c == 'd' || _c == 'i')
 		{
 			(*num_char) += write_int_short(va_arg(args, int), &p);
 			(*i) += 2;
