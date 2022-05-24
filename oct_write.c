@@ -76,3 +76,27 @@ int octal_write_short(unsigned short int num, int *ptr)
 	write(1, &c, 1);
 	return (*ptr);
 }
+
+
+
+/**
+ * len_write_oct - Write integers in base 8
+ * @num: Number passed
+ * @ptr: Pointer to variable count
+ *
+ * Return: Number of digits
+ */
+int len_write_oct(unsigned int num, int *ptr)
+{
+	unsigned int temp;
+
+	(*ptr)++;
+	if ((int)num < 0)
+	{
+		temp = UINT_MAX + 1 + num;
+		num  = temp;
+	}
+	if (num  / 8 > 0)
+		len_write_oct(num / 8, ptr);
+	return (*ptr);
+}

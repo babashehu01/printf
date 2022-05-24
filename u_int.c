@@ -79,3 +79,28 @@ int write_uint_short(unsigned short int n, int *ptr)
 	return (*ptr);
 
 }
+
+
+
+/**
+ * len_uint - write unsigned integer
+ * @n: inputed unsigned integer
+ * @ptr: pointer to variable count
+ *
+ * Return: Number of diigts of unsigned integer
+ */
+int len_uint(unsigned int n, int *ptr)
+{
+	unsigned int temp;
+
+	(*ptr)++;
+	if ((int)n < 0)
+	{
+		temp = UINT_MAX + 1 + n;
+		n = temp;
+	}
+	if (n / 10 > 0)
+		len_uint(n / 10, ptr);
+	return (*ptr);
+
+}

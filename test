@@ -2,20 +2,43 @@
 #include <stdio.h>
 
 /**
+ * func - test function
+ * @num: Number
+ *
+ * Return: 0
+ */
+int func(int num, ...)
+{
+	int i, j;
+
+	va_list list;
+
+	va_start(list, num);
+	i = va_arg(list, int);
+	j = va_arg(list, int);
+	printf("%d\n", num);
+	printf("%d\n", i);
+	printf("%d\n", j);
+	va_end(list);
+	return (0);
+
+}
+
+
+/**
  * main - test function
  *
  * Return: 0
  */
 int main(void)
 {
-	short int i = SHRT_MAX;
-	int p = 0;
-	int len, len1;
+	int num = -2, i = 0;
 
-	len = printf("%hd", i);
-	putchar(10);
-	len1 = write_int_short(i, &p);
-	putchar(10);
-	printf("%d %d\n", len, len1);
-	return (0);
+	printf("%3d\n", num);
+	while (num < 0)
+	{
+		i++;
+		num /= 10;
+	}
+	printf("%d\n", i);
 }

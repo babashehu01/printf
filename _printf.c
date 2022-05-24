@@ -40,6 +40,10 @@ int _printf(const char *format, ...)
 		{
 			check_func_flag(args, format[i + 1], format[i + 2], &num_char, &i);
 		}
+		else if (format[i] == '%' && check_width(format[i + 1]))
+		{
+			field_width(args, format[i + 1], &num_char, &i, format[i + 2]);
+		}
 		else
 		{
 			write(1, &format[i], 1);

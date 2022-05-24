@@ -99,3 +99,29 @@ int write_int_short(short int n, int *ptr)
 	write(1, &c, 1);
 	return (*ptr);
 }
+
+
+/**
+ * len_int - Write integer to stdout
+ * @n: inputed integer
+ * @ptr: pointer to varaible count
+ *
+ * Return: Length of integer
+ */
+int len_int(int n, int *ptr)
+{
+
+	if (n == -2147483648)
+	{
+		return (11);
+	}
+	(*ptr)++;
+	if (n < 0)
+	{
+		(*ptr)++;
+		n = -n;
+	}
+	if (n / 10 > 0)
+		len_int(n / 10, ptr);
+	return (*ptr);
+}

@@ -133,3 +133,28 @@ int hexa_write_short(unsigned short int num, int *ptr)
 	}
 	return (*ptr);
 }
+
+
+
+/**
+ * len_write_hexa - write numbers in base 16
+ * @num: Number passed
+ * @ptr: Pointer to variable counter
+ *
+ * Return: Number of digits or letters
+ */
+int len_write_hexa(unsigned int num, int *ptr)
+{
+	unsigned int temp;
+
+	(*ptr)++;
+	if ((int)num < 0)
+	{
+		temp = UINT_MAX + 1 + num;
+		num = temp;
+	}
+	if (num / 16 > 0)
+		len_write_hexa(num / 16, ptr);
+	temp = num % 16;
+	return (*ptr);
+}
