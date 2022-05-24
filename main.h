@@ -42,4 +42,15 @@ void check_func_flag(va_list args, char c, char f_spec, int *num_char, int *i);
 void length_modifiers(va_list args, char c, int *num_char, int *i, char _c);
 void l_modifier(va_list args, char c, int *num_char, int *i, char _c);
 void h_modifier(va_list args, char c, int *num_char, int *i, char _c);
+int check_width(char c);
+int len_int(int n, int *ptr);
+int len_uint(unsigned int n, int *ptr);
+int len_write_oct(unsigned int num, int *ptr);
+int len_write_hexa(unsigned int num, int *ptr);
+int len_x_write(unsigned int num, int *ptr);
+void print_space(int len, int width);
+void field_width(va_list args, char c, int *num_char, int *i, char _c);
+void field_width1(va_list args, char c, int *num_char, int *i, char _c);
+void field_width2(va_list args, char c, int *num_char, int *i, char _c);
+
 #endif
