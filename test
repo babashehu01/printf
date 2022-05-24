@@ -1,29 +1,35 @@
 #include "main.h"
 #include <stdio.h>
 
+void func(va_list args, int num, int i);
+void func1(int num, ...);
+
 /**
- * func - test function
- * @num: Number
+ * func1 - test function
+ * @num1: Number
  *
- * Return: 0
  */
-int func(int num, ...)
+void func1(int num, ...)
 {
-	int i, j;
+	va_list args;
 
-	va_list list;
+	va_start(args, num);
+	func(args, num, va_arg(args, int));
+	va_end(args);
+}
 
-	va_start(list, num);
-	i = va_arg(list, int);
-	j = va_arg(list, int);
+/**
+ * func - Varidiac function
+ * @num: Number
+ */
+void func(va_list args, int num, int i)
+{
+	int j;
+	j = va_arg(args, int);
 	printf("%d\n", num);
 	printf("%d\n", i);
 	printf("%d\n", j);
-	va_end(list);
-	return (0);
-
 }
-
 
 /**
  * main - test function
@@ -32,13 +38,6 @@ int func(int num, ...)
  */
 int main(void)
 {
-	int num = -2, i = 0;
-
-	printf("%3d\n", num);
-	while (num < 0)
-	{
-		i++;
-		num /= 10;
-	}
-	printf("%d\n", i);
+	func1(4, 8);
+	return (0);
 }

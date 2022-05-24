@@ -15,6 +15,8 @@ void field_width1(va_list args, char c, int *num_char, int *i, char _c)
 	int width = c - '0', num, len, p = 0;
 	unsigned int numu;
 
+	if (c == '*')
+		width = va_arg(args, int);
 	if (_c == 'd' || _c == 'i')
 	{
 		num = va_arg(args, int);
@@ -65,6 +67,8 @@ void field_width2(va_list args, char c, int *num_char, int *i, char _c)
 	int width = c - '0', num, len, p = 0;
 	unsigned int numu;
 
+	if (c == '*')
+		width = va_arg(args, int);
 	if (_c == 'o')
 	{
 		num = va_arg(args, unsigned int);
@@ -100,7 +104,6 @@ void field_width2(va_list args, char c, int *num_char, int *i, char _c)
 }
 
 
-
 /**
  * field_width3 - Handle field width
  * @args: Argument list
@@ -113,7 +116,10 @@ void field_width2(va_list args, char c, int *num_char, int *i, char _c)
 void field_width3(va_list args, char c, int *num_char, int *i, char _c)
 {
 	int width = c - '0', num, len, p = 0;
+	char k;
 
+	if (c == '*')
+		width = va_arg(args, int);
 	if (_c == 'X')
 	{
 		num = va_arg(args, int);
@@ -130,7 +136,57 @@ void field_width3(va_list args, char c, int *num_char, int *i, char _c)
 		}
 		(*i) += 2, p = 0;
 	}
+	else if (_c == 'c')
+	{
+		k = va_arg(args, int);
+		print_space(1, width);
+		if (width > 1)
+		{
+			(*num_char) += width;
+			write_char(k);
+		}
+		else
+		{
+			(*num_char) += write_char(k);
+		}
+		(*i) += 2;
+	}
 }
+
+/**
+ * field_width4 - Handle field width
+ * @args: Argument list
+ * @c: Field width
+ * @num_char: Pointer to number of characters printed
+ * @i: Pointer to variable format string
+ * @_c: Format specifiers
+ *
+ */
+void field_width4(va_list args, char c, int *num_char, int *i, char _c)
+{
+	int width = c - '0', len;
+	char *str;
+
+	if (c == '*')
+		width = va_arg(args, int);
+	if (_c == 's')
+	{
+		str = va_arg(args, char *);
+		len = _strlen(str);
+		print_space(len, width);
+		if (width > len)
+		{
+			(*num_char) += width;
+			write_str(str);
+		}
+		else
+		{
+			(*num_char) += write_str(str);
+		}
+		(*i) += 2;
+	}
+}
+
 
 
 /**
@@ -151,8 +207,12 @@ void field_width(va_list args, char c, int *num_char, int *i, char _c)
 	{
 		field_width2(args, c, num_char, i, _c);
 	}
-	else if (_c == 'X')
+	else if (_c == 'X' || _c == 'c')
 	{
 		field_width3(args, c, num_char, i, _c);
+	}
+	else if (_c == 's')
+	{
+		field_width4(args, c, num_char, i, _c);
 	}
 }
