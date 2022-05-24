@@ -52,5 +52,6 @@ void print_space(int len, int width);
 void field_width(va_list args, char c, int *num_char, int *i, char _c);
 void field_width1(va_list args, char c, int *num_char, int *i, char _c);
 void field_width2(va_list args, char c, int *num_char, int *i, char _c);
-
+void field_width3(va_list args, char c, int *num_char, int *i, char _c);
+void field_width4(va_list args, char c, int *num_char, int *i, char _c);
 #endif
