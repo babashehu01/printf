@@ -1,36 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 
-void func(va_list args, int num, int i);
-void func1(int num, ...);
-
-/**
- * func1 - test function
- * @num1: Number
- *
- */
-void func1(int num, ...)
-{
-	va_list args;
-
-	va_start(args, num);
-	func(args, num, va_arg(args, int));
-	va_end(args);
-}
-
-/**
- * func - Varidiac function
- * @num: Number
- */
-void func(va_list args, int num, int i)
-{
-	int j;
-	j = va_arg(args, int);
-	printf("%d\n", num);
-	printf("%d\n", i);
-	printf("%d\n", j);
-}
-
 /**
  * main - test function
  *
@@ -38,6 +8,7 @@ void func(va_list args, int num, int i)
  */
 int main(void)
 {
-	func1(4, 8);
+	char *str = "";
+	write_str(str);
 	return (0);
 }

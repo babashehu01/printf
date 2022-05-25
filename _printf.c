@@ -25,10 +25,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && (check_mode(format[i + 1]) ||
 					check_width(format[i + 1])))
 		{
-			field_width(args, format[i + 1], &num_char, &i, format[i + 2]);
-			length_modifiers(args, format[i + 1], &num_char, &i, format[i + 2]);
-			check_func(args, format[i + 1], &num_char, &i);
-			check_func2(args, format[i + 1], &num_char, &i);
+			ctrl_center(args, format[i + 1], &num_char, &i, format[i + 2]);
 		}
 		else if (format[i] == '%' && (check_flag(format[i + 1])
 					&& check_flag(format[i + 2])))

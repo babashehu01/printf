@@ -54,4 +54,6 @@ void field_width1(va_list args, char c, int *num_char, int *i, char _c);
 void field_width2(va_list args, char c, int *num_char, int *i, char _c);
 void field_width3(va_list args, char c, int *num_char, int *i, char _c);
 void field_width4(va_list args, char c, int *num_char, int *i, char _c);
+void ctrl_center(va_list args, char c, int *num_char, int *i, char _c);
+
 #endif
