@@ -22,8 +22,10 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	for (i = 0; format[i]; i++)
 	{
-		if (format[i] == '%' && check_mode(format[i + 1]))
+		if (format[i] == '%' && (check_mode(format[i + 1]) ||
+					check_width(format[i + 1])))
 		{
+			field_width(args, format[i + 1], &num_char, &i, format[i + 2]);
 			length_modifiers(args, format[i + 1], &num_char, &i, format[i + 2]);
 			check_func(args, format[i + 1], &num_char, &i);
 			check_func2(args, format[i + 1], &num_char, &i);
@@ -33,21 +35,15 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '+' || format[i + 2] == '+')
 				c = '+';
-			check_func_flag(args, c, format[i + 3], &num_char, &i);
-			i++;
+			check_func_flag(args, c, format[i + 3], &num_char, &i), i++;
 		}
 		else if (format[i] == '%' && check_flag(format[i + 1]))
 		{
 			check_func_flag(args, format[i + 1], format[i + 2], &num_char, &i);
 		}
-		else if (format[i] == '%' && check_width(format[i + 1]))
-		{
-			field_width(args, format[i + 1], &num_char, &i, format[i + 2]);
-		}
 		else
 		{
-			write(1, &format[i], 1);
-			num_char++;
+			write(1, &format[i], 1), num_char++;
 		}
 	}
 	va_end(args);
