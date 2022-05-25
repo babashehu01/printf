@@ -7,9 +7,10 @@
  * @num_char: Pointer to number of characters printed
  * @i: Count variable in format string
  * @_c: Format specifier in some cases
+ * @k: Format specifier in precision cases
  *
  */
-void ctrl_center(va_list args, char c, int *num_char, int *i, char _c)
+void ctrl_center(va_list args, char c, int *num_char, int *i, char _c, char k)
 {
 	if (c == 's' || c == 'c' || c == 'd' || c == 'i' || c == 'b' || c == '%')
 		check_func(args, c, num_char, i);
@@ -17,6 +18,10 @@ void ctrl_center(va_list args, char c, int *num_char, int *i, char _c)
 		check_func2(args, c, num_char, i);
 	else if (c == 'l' || c == 'h')
 		length_modifiers(args, c, num_char, i, _c);
+	else if (c == '.' && check_mode(_c))
+		precision7(args, c, num_char, i, _c);
+	else if (c == '.' && check_mode(k))
+		precision(args, _c, num_char, i, k);
 	else if (check_width(c))
 		field_width(args, c, num_char, i, _c);
 }

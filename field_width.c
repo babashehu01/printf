@@ -64,24 +64,24 @@ void field_width1(va_list args, char c, int *num_char, int *i, char _c)
  */
 void field_width2(va_list args, char c, int *num_char, int *i, char _c)
 {
-	int width = c - '0', num, len, p = 0;
+	int width = c - '0', len, p = 0;
 	unsigned int numu;
 
 	if (c == '*')
 		width = va_arg(args, int);
 	if (_c == 'o')
 	{
-		num = va_arg(args, unsigned int);
-		len = len_write_oct(num, &p), p = 0;
+		numu = va_arg(args, unsigned int);
+		len = len_write_oct(numu, &p), p = 0;
 		print_space(len, width);
 		if (width > len)
 		{
 			(*num_char) += width;
-			octal_write(num, &p);
+			octal_write(numu, &p);
 		}
 		else
 		{
-			(*num_char) += octal_write(num, &p);
+			(*num_char) += octal_write(numu, &p);
 		}
 		(*i) += 2, p = 0;
 	}
@@ -115,14 +115,15 @@ void field_width2(va_list args, char c, int *num_char, int *i, char _c)
  */
 void field_width3(va_list args, char c, int *num_char, int *i, char _c)
 {
-	int width = c - '0', num, len, p = 0;
+	unsigned int num;
+	int width = c - '0', len, p = 0;
 	char k;
 
 	if (c == '*')
 		width = va_arg(args, int);
 	if (_c == 'X')
 	{
-		num = va_arg(args, int);
+		num = va_arg(args, unsigned int);
 		len = len_x_write(num, &p), p = 0;
 		print_space(len, width);
 		if (width > len)

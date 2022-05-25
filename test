@@ -8,7 +8,9 @@
  */
 int main(void)
 {
-	char *str = "";
-	write_str(str);
+	int len;
+
+	len = printf("%.d", 1);
+	printf("\n%d\n", len);
 	return (0);
 }

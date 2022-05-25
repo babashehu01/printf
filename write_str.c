@@ -20,3 +20,22 @@ int write_str(char *s)
 	write(1, s, length);
 	return (length);
 }
+
+/**
+ * write_str1 - Write string with condition
+ * @s: Inputed string
+ * @len: Number to chars to write
+ *
+ * Return: Number of chars written
+ */
+int write_str1(char *s, int len)
+{
+	if (s == (char *)0)
+	{
+		s = "(null)";
+		write(1, s, 6);
+		return (6);
+	}
+	write(1, s, len);
+	return (len);
+}
