@@ -49,6 +49,8 @@ int rot13(char *str)
 		else if ((s[index] >= 'N' && s[index] <= 'Z') ||
 				(s[index] >= 'n' && s[index] <= 'z'))
 			ptr[index] = s[index] - 13;
+		else
+			ptr[index] = s[index];
 	}
 	ptr[index] = '\0';
 	write(1, ptr, index);
