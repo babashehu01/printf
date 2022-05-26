@@ -69,5 +69,9 @@ void zero_flag1(va_list args, char c, int *num_char, int *i, char _c);
 void zero_flag2(va_list args, char c, int *num_char, int *i, char _c);
 void zero_flag3(va_list args, char c, int *num_char, int *i, char _c);
 void zero_flag(va_list args, char c, int *num_char, int *i, char _c);
+void minus_flag1(va_list args, char c, int *num_char, int *i, char _c);
+void minus_flag2(va_list args, char c, int *num_char, int *i, char _c);
+void minus_flag3(va_list args, char c, int *num_char, int *i, char _c);
+void minus_flag(va_list args, char c, int *num_char, int *i, char _c);
 
 #endif
