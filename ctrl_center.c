@@ -33,4 +33,9 @@ void ctrl_center(va_list args, char c, int *num_char, int *i, char _c, char k)
 		(*num_char) += rev_str(va_arg(args, char *));
 		(*i)++;
 	}
+	else if (c == 'R')
+	{
+		(*num_char) += rot13(va_arg(args, char *));
+		(*i)++;
+	}
 }

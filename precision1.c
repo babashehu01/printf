@@ -1,5 +1,7 @@
 #include "main.h"
 
+
+void precision4_(int width, int len, int *num_char, int *i, unsigned int numU);
 /**
  * precision4 - Handle precison specifier
  * @args: Arguments Lists
@@ -47,18 +49,34 @@ void precision4(va_list args, char c, int *num_char, int *i, char _c)
 			return;
 		}
 		len  = len_uint(numU, &p), p = 0, print_zero(len, width);
-		if (width > len)
-		{
-			(*num_char) += width, write_uint(numU, &p);
-		}
-		else
-		{
-			(*num_char) += write_uint(numU, &p);
-		}
-		(*i) += 2, p = 0;
+		precision4_(width, len, num_char, i, numU);
 	}
 }
 
+/**
+ * precision4_ - Handles (.) for u
+ * @width: width
+ * @len: Number of digits
+ * @num_char: Pointer to number of variables printed
+ * @i: count variable
+ * @numU: unsigned int
+ *
+ */
+void precision4_(int width, int len, int *num_char, int *i, unsigned int numU)
+{
+	int p = 0;
+
+	if (width > len)
+	{
+		(*num_char) += width;
+		write_uint(numU, &p);
+	}
+	else
+	{
+		(*num_char) += write_uint(numU, &p);
+	}
+	(*i) += 2, p = 0;
+}
 
 
 /**

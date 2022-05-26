@@ -11,7 +11,7 @@ int main(void)
 	char *s = "BOY";
 	int len;
 
-	len = rev_str(s);
+	len = rot13(s);
 	printf("\n%d\n", len);
 	return (0);
 }

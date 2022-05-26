@@ -59,9 +59,11 @@ void field_width4(va_list args, char c, int *num_char, int *i, char _c);
 void ctrl_center(va_list args, char c, int *num_char, int *i, char _c, char k);
 void precision(va_list args, char c, int *num_char, int *i, char _c);
 void precision1(va_list args, char c, int *num_char, int *i, char _c);
+void precision1_(int width, int len, int *num_char, int *i, unsigned int numU);
 void precision2(va_list args, char c, int *num_char, int *i, char _c);
 void precision3(va_list args, char c, int *num_char, int *i, char _c);
 void precision4(va_list args, char c, int *num_char, int *i, char _c);
+void precision4_(int width, int len, int *num_char, int *i, unsigned int numU);
 void precision5(va_list args, char c, int *num_char, int *i, char _c);
 void precision6(va_list args, char c, int *num_char, int *i, char _c);
 void precision7(va_list args, char c, int *num_char, int *i, char _c);
@@ -74,5 +76,6 @@ void minus_flag2(va_list args, char c, int *num_char, int *i, char _c);
 void minus_flag3(va_list args, char c, int *num_char, int *i, char _c);
 void minus_flag(va_list args, char c, int *num_char, int *i, char _c);
 int rev_str(char *str);
+int rot13(char *str);
 
 #endif
