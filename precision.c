@@ -31,8 +31,7 @@ void precision1(va_list args, char c, int *num_char, int *i, char _c)
 		print_zero(len, width);
 		if (width > len)
 		{
-			(*num_char) += width;
-			write_int(num, &p);
+			(*num_char) += width, write_int(num, &p);
 		}
 		else
 		{
@@ -52,8 +51,7 @@ void precision1(va_list args, char c, int *num_char, int *i, char _c)
 		print_zero(len, width);
 		if (width > len)
 		{
-			(*num_char) += width;
-			write_uint(numU, &p);
+			(*num_char) += width, write_uint(numU, &p);
 		}
 		else
 		{
@@ -89,12 +87,10 @@ void precision2(va_list args, char c, int *num_char, int *i, char _c)
 	}
 	if (_c == 'o')
 	{
-		len = len_write_oct(numU, &p), p = 0;
-		print_zero(len, width);
+		len = len_write_oct(numU, &p), p = 0, print_zero(len, width);
 		if (width > len)
 		{
-			(*num_char) += width;
-			octal_write(numU, &p);
+			(*num_char) += width, octal_write(numU, &p);
 		}
 		else
 		{
@@ -104,12 +100,10 @@ void precision2(va_list args, char c, int *num_char, int *i, char _c)
 	}
 	else if (_c == 'x')
 	{
-		len  = len_write_hexa(numU, &p), p = 0;
-		print_zero(len, width);
+		len  = len_write_hexa(numU, &p), p = 0, print_zero(len, width);
 		if (width > len)
 		{
-			(*num_char) += width;
-			hexa_write(numU, &p);
+			(*num_char) += width, hexa_write(numU, &p);
 		}
 		else
 		{
@@ -146,17 +140,10 @@ void precision3(va_list args, char c, int *num_char, int *i, char _c)
 			(*i) += 3;
 			return;
 		}
-		if (width == 0 && numU == 0)
-		{
-			(*i) += 3;
-			return;
-		}
-		len = len_x_write(numU, &p), p = 0;
-		print_zero(len, width);
+		len = len_x_write(numU, &p), p = 0, print_zero(len, width);
 		if (width > len)
 		{
-			(*num_char) += width;
-			hexa_x_write(numU, &p);
+			(*num_char) += width, hexa_x_write(numU, &p);
 		}
 		else
 		{
@@ -166,8 +153,7 @@ void precision3(va_list args, char c, int *num_char, int *i, char _c)
 	}
 	else if (_c == 's')
 	{
-		str = va_arg(args, char *);
-		len = _strlen(str);
+		str = va_arg(args, char *), len = _strlen(str);
 		if (width < len)
 			(*num_char) += write_str1(str, width);
 		else
