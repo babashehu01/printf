@@ -28,4 +28,9 @@ void ctrl_center(va_list args, char c, int *num_char, int *i, char _c, char k)
 		minus_flag(args, _c, num_char, i, k);
 	else if (check_width(c))
 		field_width(args, c, num_char, i, _c);
+	else if (c == 'r')
+	{
+		(*num_char) += rev_str(va_arg(args, char *));
+		(*i)++;
+	}
 }

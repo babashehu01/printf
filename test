@@ -8,9 +8,10 @@
  */
 int main(void)
 {
+	char *s = "BOY";
 	int len;
 
-	len = printf("%-6d", -1024);
+	len = rev_str(s);
 	printf("\n%d\n", len);
 	return (0);
 }
