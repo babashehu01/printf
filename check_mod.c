@@ -34,6 +34,8 @@ int check_width(char c)
 		return (1);
 	if (c >= '0' && c <= '9')
 		return (1);
+	if (c == '-')
+		return (1);
 	return (0);
 }
 
