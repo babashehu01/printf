@@ -1,11 +1,11 @@
 # _printf
- This is a copy of the printf function defined in the stdio.h header file. The printf is used to write to the standard output(STDOUT) which by default is the screen. The printf function makes use of conversion specifiers in writing different data types to the STDOUT combined with flags characters(#, 0, + etc), length modifiers(h, l, hh, ll etc), field width and precision.
+ This is a copy of the printf function defined in the `stdio.h` header file. The printf is used to write to the standard output(STDOUT) which by default is the screen. The printf function makes use of conversion specifiers in writing different data types to the STDOUT combined with flags characters(#, 0, + etc), length modifiers(h, l, hh, ll etc), field width and precision.
 
 # Dependencies
  This _printf was programmed on ubuntu 20.04.1 LTS machine compiled with gcc version 9.4.0
 
 # Description
- _printf is an example of variadic function(The function accepts variable arguments). The arguments can be accessed using the va_list, va_start, va_arg and va_end macros defined in the header file "stdarg.h". To handle the different format specifiers(also custom format specifiers like R for reverse string and r for rot'13 encryption), different functions were written then combine into one, Like:
+ _printf is an example of variadic function(The function accepts variable arguments). The arguments can be accessed using the `va_list`, `va_start`, `va_arg` and `va_end` macros defined in the header file `stdarg.h`. To handle the different format specifiers(also custom format specifiers like R for reverse string and r for rot'13 encryption), different functions were written then combine into one, Like:
 ```
  write_int.c handles format specifier d
  write_str.c   ""      ""      ""     s
@@ -16,7 +16,7 @@
 ```
 and so on for other format specifiers.
  
-Function Prototype: int _printf(const char *format, ...);
+Function Prototype: `int _printf(const char *format, ...);`
 
 ### Return Value:
 Upon successful return, "_printf" returns the  number of characters printed to STDOUT(excluding the null byte ('\0') used to denote end of string). If output error is encountered, the function returns "-1".
