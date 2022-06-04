@@ -21,10 +21,10 @@ and so on for other format specifiers
 # Example
 * #include "main.h" /* contains function prototypes and header file*/
 
-*  int main(void)
-*  {
-*      _printf("%s\n", "Hello World");
-*      return (0);
+  int main(void)
+  {
+      _printf("%s\n", "Hello World");
+      return (0);
 *  }
 
 compile with (gcc -Wall -pedantic -Werror -Wextra -std-gnu89 *.c)
