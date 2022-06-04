@@ -19,13 +19,13 @@ and so on for other format specifiers
  Return Value: Number of chars printed
 
 # Example
-  #include "main.h" /* contains function prototypes and header file*/
+* #include "main.h" /* contains function prototypes and header file*/
 
-  int main(void)
-  {
-      _printf("%s\n", "Hello World");
-      return (0);
-  }
+*  int main(void)
+*  {
+*      _printf("%s\n", "Hello World");
+*      return (0);
+*  }
 
 compile with (gcc -Wall -pedantic -Werror -Wextra -std-gnu89 *.c)
 ## Output
@@ -36,7 +36,7 @@ compile with (gcc -Wall -pedantic -Werror -Wextra -std-gnu89 *.c)
 * **Musti Babasheshu**
 
 # References & Acknowledgements
- Linux man page for "printf"
- secrets of printf by Professor Don Colton
- stack overflow
- ALx
+* **Linux man page for "printf"**
+* **Secrets of printf by Professor Don Colton**
+* **Stack overflow**
+* **ALX**
