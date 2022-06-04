@@ -6,12 +6,14 @@
 
 # Description
  _printf is an example of variadic function(The function accepts variable arguments). The arguments can be accessed using the va_list, va_start, va_arg and va_end macros defined in the header file "stdarg.h". To handle the different format specifiers(also custom format specifiers like R for reverse string and r for rot'13 encryption), different functions were written then combine into one, Like:
+```
 * **write_int.c handles format specifier d**
 * **write_str.c   ""      ""      ""     s**
 * **oct_write.c   ""      ""      ""     o**
 * **write_char.c  ""      ""      ""     c**
 * **u_int.c       ""      ""      ""     u**
 * **precision.c   ""      precision(.)**
+```
 and so on for other format specifiers
  
  Function Prototype: int _printf(const char *format, ...);
@@ -33,8 +35,9 @@ Compile:
 $ gcc -Wall -pedantic -Werror -Wextra -std-gnu89 *.c -o hello 
 ```
 ## Output
+```
   Hello World
-
+```
 # Authors
 * **Musa Oluwamayowa**
 * **Musti Babasheshu**
