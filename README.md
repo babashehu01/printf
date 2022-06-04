@@ -14,11 +14,12 @@
  u_int.c       ""      ""      ""     u
  precision.c   ""      precision(.)
 ```
-and so on for other format specifiers
+and so on for other format specifiers.
  
-### Function Prototype: int _printf(const char *format, ...);
+Function Prototype: int _printf(const char *format, ...);
 
-### Return Value: Number of chars printed
+### Return Value:
+Upon successful return, "_printf" returns the  number of characters printed to STDOUT(excluding the null byte ('\0') used to denote end of string). If output error is encountered, the function returns "-1".
 
 # Example:
  ```
