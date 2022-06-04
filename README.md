@@ -19,15 +19,19 @@ and so on for other format specifiers
  Return Value: Number of chars printed
 
 # Example
-* #include "main.h" /* contains function prototypes and header file*/
+'''
+ #include "main.h" /* contains function prototypes and header file*/
 
   int main(void)
   {
       _printf("%s\n", "Hello World");
       return (0);
-*  }
-
-compile with (gcc -Wall -pedantic -Werror -Wextra -std-gnu89 *.c)
+  }
+'''
+##compile  
+'''
+$ gcc -Wall -pedantic -Werror -Wextra -std-gnu89 *.c -o hello 
+'''
 ## Output
   Hello World
 
