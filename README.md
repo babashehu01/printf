@@ -33,7 +33,7 @@ Upon successful return, "_printf" returns the  number of characters printed to `
  ```
 Compile:  
 ```
-$ gcc -Wall -pedantic -Werror -Wextra -std-gnu89 *.c -o hello 
+  $ gcc -Wall -pedantic -Werror -Wextra -std-gnu89 *.c -o hello 
 ```
 ## Output
 ```
